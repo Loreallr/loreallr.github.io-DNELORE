@@ -5,40 +5,58 @@
     <style>
         body { 
             font-family: Arial, sans-serif; 
-            margin: 0; /* Removi margin do body para a barra superior colar no topo */
+            margin: 0; 
             background-color: #f5f5f5; 
             color: #333; 
         }
         header {
-            background-color: #0056b3; /* Cor da barra superior - mude aqui se quiser outra (ex: #007bff) */
+            background-color: #0056b3; /* Cor da barra superior do original */
             color: white;
-            padding: 15px 0;
+            padding: 10px 0;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave para ficar mais moderno */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        h1 { 
-            font-size: 24px; 
-            margin: 0; /* Sem margin para ficar justo na barra */
+        header .logo {
+            margin-right: 20px;
+            font-size: 20px; /* Placeholder para logo */
+        }
+        header nav {
+            display: inline-block;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+        header nav a:hover {
+            text-decoration: underline;
         }
         .container {
-            max-width: 800px; /* Limite de largura para centralizar e não esticar */
-            margin: 20px auto; /* Centraliza horizontalmente */
-            padding: 0 20px; /* Espaçamento lateral interno */
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        h1 { 
+            font-size: 20px; 
+            color: #0056b3; 
+            margin: 10px 0; 
         }
         .valid-message { 
-            text-align: center; 
-            background-color: #e6f3e6; 
-            color: #008000; 
+            background-color: #d4edda; /* Verde claro do original */
+            color: #155724; /* Texto verde escuro */
             font-weight: bold; 
             padding: 10px; 
-            border: 1px solid #008000; 
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center; 
+            margin: 10px 0;
         }
         .attest { 
             text-align: center; 
             font-style: italic;
             margin: 10px 0;
+            font-size: 14px;
         }
         .photo-section { 
             text-align: center; 
@@ -47,80 +65,93 @@
         img { 
             width: 150px; 
             height: auto; 
-            border: 1px solid #ccc; 
-            border-radius: 50%; /* Torna a foto redonda, se o original for quadrada remova isso */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
         }
         table { 
-            width: 100%; /* Agora 100% do container, para preencher o limite */
+            width: 100%; 
             border-collapse: collapse; 
-            border: 1px solid #ccc; 
+            border: 1px solid #ddd; 
             margin: 20px 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        th, td { 
-            border: 1px solid #ccc; 
-            padding: 10px; 
-            text-align: left; 
         }
         th { 
-            background-color: #f0f0f0; 
             font-weight: bold; 
+            border: 1px solid #ddd; 
+            padding: 8px; 
+            background-color: #f9f9f9;
+        }
+        td { 
+            border: 1px solid #ddd; 
+            padding: 8px; 
         }
         pre { 
             background-color: #f9f9f9; 
-            border: 1px solid #ccc; 
+            border: 1px solid #ddd; 
             padding: 10px; 
-            overflow: auto; 
             font-family: monospace; 
-            white-space: pre-wrap; 
+            white-space: pre-wrap; /* Quebra linhas sem rolagem lateral */
             margin: 20px 0; 
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            width: 100%;
         }
-        /* Estilo para inválido - ajustado para vermelho */
         .invalid {
-            background-color: #f3e6e6 !important;
-            color: #800000 !important;
-            border-color: #800000 !important;
+            background-color: #f8d7da !important;
+            color: #721c24 !important;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Validação de CIE (Carteira de Identificação Estudantil)</h1>
+        <span class="logo">meiaentrada.net.br</span>
+        <nav>
+            <a href="#">Leia da Meia-entrada</a>
+            <a href="#">Validação</a>
+            <a href="#">Chaves públicas</a>
+            <a href="#">FAQ</a>
+            <a href="#">Notícias</a>
+        </nav>
     </header>
     <div class="container">
+        <h1>Validação de CIE (Carteira de Identificação Estudantil)</h1>
+        <hr style="border: 1px solid #0056b3; margin: 10px 0;">
         <p class="valid-message" id="valid-msg">Documento válido!</p>
-        <p class="attest" id="attest-text">UEB atesta que LORENA DO CARMO RAMOS é estudante e está regularmente matriculado(a) em PSICOLOGIA da instituição UFBA</p>
+        <p class="attest" id="attest-text">UEB atesta que NATALIA C. TENÓRIO DOS SANTOS é estudante e está regularmente matriculado(a) em NUTRIÇÃO da instituição UFBA</p>
         <div class="photo-section">
             <h2>Foto</h2>
             <img id="photo" src="https://i.imgur.com/rn0mR2e.jpeg" alt="Foto do Estudante">
         </div>
         <table>
-            <tr><th>Nome:</th><td id="name">LORENA DO CARMO RAMOS</td></tr>
+            <tr><th>Nome:</th><td id="name">NATALIA C. TENÓRIO DOS SANTOS</td></tr>
             <tr><th>Instituição:</th><td id="inst">UFBA</td></tr>
-            <tr><th>Curso:</th><td id="course">PSICOLOGIA</td></tr>
-            <tr><th>Documento de Identificação:</th><td id="doc">1318757606</td></tr>
+            <tr><th>Curso:</th><td id="course">NUTRIÇÃO</td></tr>
+            <tr><th>Documento de Identificação:</th><td id="doc">1406255858</td></tr>
             <tr><th>Emissor:</th><td id="emitter">UEB</td></tr>
         </table>
         <h3>Certificado de Atributo em formato PEM:</h3>
         <pre id="cert">
 -----BEGIN CERTIFICATE-----
-MIIEeDCCA2ICAQEwgYyhgYmkgYYwgYMxCzAJBgNVBAYTAkJSMRMwEQYDVQQKDApJQ1AtQnJhc2lsMTYwNAYDVQQLDC1VTklBTyBET1MgRVNUVURBTlRFUyBETyBCUkFTSUw6MDU1MDE2MjcwMDAxNDAxJzAlBgNVBAMMHk5BVEFMSUEgQy4gVEVOw5NSSU8gRE9TIFNBTlRPUzCCARKkggEOMIIBCjE2MDQGA1UEAwwtVU5JQU8gRE9TIEVTVFVEQU5URVMgRE8gQlJBU0lMOjA1NTAxNjI3MDAwMTQwMRYwFAYDVQQLDA1SRkIgZS1DTlBKIEEzMTYwNAYDVQQLDC1TZWNyZXRhcmlhIGRhIFJlY2VpdGEgRmVkZXJhbCBkbyBCcmFzaWwgLSBSRkIxFzAVBgNVBAsMDjE4Nzk5ODk3MDAwMTIwMRkwFwYDVQQLDBBWaWRlb2NvbmZlcmVuY2lhMR0wGwYDVQQHDBRWaXRvcmlhIGRhIENvbnF1aXN0YTELMAkGA1UECAwCQkExEzARBgNVBAoMCklDUC1CcmFzaWwxCzAJBgNVBAYTAkJSMAsGCSqGSIb3DQEBDQIDBz6RMCIYDzIwMjUwMzMxMDMwMDAwWhgPMjAyNjA0MDEwMjU5NTlaMIHAMEYGBWBMAQoBMT0TOzA2MDEyMDAzMDk0Mzc4OTI1NzEwMDAwMDAwMDA0NzQ3NjkwMDAwMDE0MDYyNTU4NTggICAgICAgICAgMHYGBWBMAQoCMW0Ta1VGQkEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFTlNJTk8gTUVESU8gICBOVVRSSUNBTyAgICAgICAgICAgICAgICAgICAgICBTQUxWQURPUiAgICAgICAgICAgIEJBMIG+MB8GA1UdIwQYMBaAFJBb3LljYN7JSkW4XNHv7Q9kbiWGMEYGA1UdHwQ/MD0wO6I5hjdodHRwOi8vY2FyZS5kb3Rpc29sdWNvZXMuY29tLmJyL2FwaS9lbnRpZGFkZXMvMy9jcmxzLzE2MFMGCCsGAQUFBwEBBEcwRTBDBggrBgEFBQcwAoY3aHR0cDovL2NhcmUuZG90aXNvbHVjb2VzLmNvbS5ici9hcGkvZW50aWRhZGVzLzMvYWlhcy8xNjALBgkqhkiG9w0BAQ0DggEBAALWt1KoNpDjnE68mKGsXcPHGaD3GTUbfZIKtPqL8MU+EigNFQx6TbzlihOJwAG3e9/FIfgYzT8o1ArZWSDsXQSGtChdlyftZm5e4t3HHmueLb3B4a5G1L/nE0osMQtNAScGHwCFUiryHeSI9RhzD5Iu1f9zq99dmDEe9yInN2D2Lt1damD7V06xtlxzxlhEfeOzrg3f56qWwnN952YxjDvyFjABNKoTf78I5s/9/1gh6aIXx7ummfsh2XGsRO4KwipgaShyFtzc8Qh6eUyWpwSUUcr7f1HXSU17rtsHYDzRPaBthSZXQUci36pfsy23zPi94JFVNBYVXlQH7tjUQpA=l
+MIIDeDCCA2ICAQEwgYyhgYmkgYYwgYMxCzAJBgNVBAYTAkJSMRMwEQYDVQQKDApJQ1AtQnJhc2lsMTYwNAYDVQQLDC1VTklBTyBET1MgRVNUVURBTlRFUyBETyBCUkFTSUw6MDU1MDE2MjcwMDAxNDAxJzAlBgNVBAMMHk5BVEFMSUEgQy4gVEVOw5MSSU8gRE9TIFNBTlRPUzCCARKkggEOMIIBCjE2MDQGA1UEAwwtVU5JQU8gRE9TIEVTVFVEQU5URVMgRE8gQlJBU0lMOjA1NTAxNjI3MDAwMTQwMRYwFAYDVQQLDA1SRkIgZS1DTlBKIEEzMTYwNAYDVQQLDC1TZWNyZXRhcmlhIGRhIFJlY2VpdGEgRmVkZXJhbCBkbyBCcmFzaWwgLSBSRkIxFzAVBgNVBAsMDjE4Nzk5ODk3MDAwMTIwMRkwFwYDVQQLDBBWaWRlb2NvbmZlcmVuY2lhMR0wGwYDVQQHDBRWaXRvcmlhIGRhIENvbnF1aXN0YTELMAkGA1UECAwCQkExEzARBgNVBAoMCklDUC1CcmFzaWwxCzAJBgNVBAYTAkJSMAsGCSqGSIb3DQEBDQIDBz6RMCIYDzIwMjUwMzMxMDMwMDAwWhgPMjAyNjA0MDEwMjU5NTlaMIHAMEYGBWBMAQoBMT0TOzA2MDEyMDAzMDk0Mzc4OTI1NzEwMDAwMDAwMDA0NzQ3NjkwMDAwMDE0MDYyNTU4NTggICAgICAgICAgMHYGBWBMAQoCMW0Ta1VGQkEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFTlNJTk8gTUVESU8gICBOVVRSSUNBTyAgICAgICAgICAgICAgICAgICAgICBTQUxWQURPUiAgICAgICAgICAgIEJBMIG+MB8GA1UdIwQYMBaAFJBb3LljYN7JSkW4XNHv7Q9kbiWGMEYGA1UdHwQ/MD0wO6I5hjdodHRwOi8vY2FyZS5kb3Rpc29sdWNvZXMuY29tLmJyL2FwaS9lbnRpZGFkZXMvMy9jcmxzLzE2MFMGCCsGAQUFBwEBBEcwRTBDBggrBgEFBQcwAoY3aHR0cDovL2NhcmUuZG90aXNvbHVjb2VzLmNvbS5ici9hcGkvZW50aWRhZGVzLzMvYWlhcy8xNjALBgkqhkiG9w0BAQ0DggEBAALWt1KoNpDjnE68mKGsXcPHGaD3GTUbfZIKtPqL8MU+EigNFQx6TbzlihOJwAG3e9/FIfgYzT8o1ArZWSDsXQSGtChdlyftZm5e4t3HHmueLb3B4a5G1L/nE0osMQtNAScGHwCFUiryHeSI9RhzD5Iu1f9zq99dmDEe9yInN2D2Lt1damD7V06xtlxzxlhEfeOzrg3f56qWwnN952YxjDvyFjABNKoTf78I5s/9/1gh6aIXx7ummfsh2XGsRO4KwipgaShyFtzc8Qh6eUyWpwSUUcr7f1HXSU17rtsHYDzRPaBthSZXQUci36pfsy23zPi94JFVNBYVXlQH7tjUQpA=l
 -----END CERTIFICATE-----
         </pre>
     </div>
 
     <script>
-        // Parte dinâmica: Lê ?matricula= da URL e atualiza os dados
         const urlParams = new URLSearchParams(window.location.search);
         const matricula = urlParams.get('matricula');
 
         if (matricula) {
-            // Simule um banco de dados com objetos JS (adicione mais se quiser)
             const dados = {
-                'DNELORE': {  // Matrícula fictícia - adicione mais aqui, ex: 'SWZ3QSEP': { ... dados do original ... }
+                'SWZ3QSEP': {
+                    valid: true,
+                    attest: 'UEB atesta que NATALIA C. TENÓRIO DOS SANTOS é estudante e está regularmente matriculado(a) em NUTRIÇÃO da instituição UFBA',
+                    photo: 'https://i.imgur.com/rn0mR2e.jpeg', // Substitua por URL real se disponível
+                    name: 'NATALIA C. TENÓRIO DOS SANTOS',
+                    inst: 'UFBA',
+                    course: 'NUTRIÇÃO',
+                    doc: '1406255858',
+                    emitter: 'UEB',
+                    cert: '-----BEGIN CERTIFICATE-----\nMIIDeDCCA2ICAQEwgYyhgYmkgYYwgYMxCzAJBgNVBAYTAkJSMRMwEQYDVQQKDApJQ1AtQnJhc2lsMTYwNAYDVQQLDC1VTklBTyBET1MgRVNUVURBTlRFUyBETyBCUkFTSUw6MDU1MDE2MjcwMDAxNDAxJzAlBgNVBAMMHk5BVEFMSUEgQy4gVEVOw5MSSU8gRE9TIFNBTlRPUzCCARKkggEOMIIBCjE2MDQGA1UEAwwtVU5JQU8gRE9TIEVTVFVEQU5URVMgRE8gQlJBU0lMOjA1NTAxNjI3MDAwMTQwMRYwFAYDVQQLDA1SRkIgZS1DTlBKIEEzMTYwNAYDVQQLDC1TZWNyZXRhcmlhIGRhIFJlY2VpdGEgRmVkZXJhbCBkbyBCcmFzaWwgLSBSRkIxFzAVBgNVBAsMDjE4Nzk5ODk3MDAwMTIwMRkwFwYDVQQLDBBWaWRlb2NvbmZlcmVuY2lhMR0wGwYDVQQHDBRWaXRvcmlhIGRhIENvbnF1aXN0YTELMAkGA1UECAwCQkExEzARBgNVBAoMCklDUC1CcmFzaWwxCzAJBgNVBAYTAkJSMAsGCSqGSIb3DQEBDQIDBz6RMCIYDzIwMjUwMzMxMDMwMDAwWhgPMjAyNjA0MDEwMjU5NTlaMIHAMEYGBWBMAQoBMT0TOzA2MDEyMDAzMDk0Mzc4OTI1NzEwMDAwMDAwMDA0NzQ3NjkwMDAwMDE0MDYyNTU4NTggICAgICAgICAgMHYGBWBMAQoCMW0Ta1VGQkEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFTlNJTk8gTUVESU8gICBOVVRSSUNBTyAgICAgICAgICAgICAgICAgICAgICBTQUxWQURPUiAgICAgICAgICAgIEJBMIG+MB8GA1UdIwQYMBaAFJBb3LljYN7JSkW4XNHv7Q9kbiWGMEYGA1UdHwQ/MD0wO6I5hjdodHRwOi8vY2FyZS5kb3Rpc29sdWNvZXMuY29tLmJyL2FwaS9lbnRpZGFkZXMvMy9jcmxzLzE2MFMGCCsGAQUFBwEBBEcwRTBDBggrBgEFBQcwAoY3aHR0cDovL2NhcmUuZG90aXNvbHVjb2VzLmNvbS5ici9hcGkvZW50aWRhZGVzLzMvYWlhcy8xNjALBgkqhkiG9w0BAQ0DggEBAALWt1KoNpDjnE68mKGsXcPHGaD3GTUbfZIKtPqL8MU+EigNFQx6TbzlihOJwAG3e9/FIfgYzT8o1ArZWSDsXQSGtChdlyftZm5e4t3HHmueLb3B4a5G1L/nE0osMQtNAScGHwCFUiryHeSI9RhzD5Iu1f9zq99dmDEe9yInN2D2Lt1damD7V06xtlxzxlhEfeOzrg3f56qWwnN952YxjDvyFjABNKoTf78I5s/9/1gh6aIXx7ummfsh2XGsRO4KwipgaShyFtzc8Qh6eUyWpwSUUcr7f1HXSU17rtsHYDzRPaBthSZXQUci36pfsy23zPi94JFVNBYVXlQH7tjUQpA=l\n-----END CERTIFICATE-----'
+                },
+                'DNELORE': { /* Mantém o anterior para teste */
                     valid: true,
                     attest: 'UEB atesta que LORENA DO CARMO RAMOS é estudante e está regularmente matriculado(a) em PSICOLOGIA da instituição UFBA',
                     photo: 'https://i.imgur.com/rn0mR2e.jpeg',
@@ -129,7 +160,7 @@ MIIEeDCCA2ICAQEwgYyhgYmkgYYwgYMxCzAJBgNVBAYTAkJSMRMwEQYDVQQKDApJQ1AtQnJhc2lsMTYw
                     course: 'PSICOLOGIA',
                     doc: '1318757606',
                     emitter: 'UEB',
-                    cert: '-----BEGIN CERTIFICATE-----\nMIIEeDCCA2ICAQEwgYyhgYmkgYYwgYMxCzAJBgNVBAYTAkJSMRMwEQYDVQQKDApJQ1AtQnJhc2lsMTYwNAYDVQQLDC1VTklBTyBET1MgRVNUVURBTlRFUyBETyBCUkFTSUw6MDU1MDE2MjcwMDAxNDAxJzAlBgNVBAMMHk5BVEFMSUEgQy4gVEVOw5NSSU8gRE9TIFNBTlRPUzCCARKkggEOMIIBCjE2MDQGA1UEAwwtVU5JQU8gRE9TIEVTVFVEQU5URVMgRE8gQlJBU0lMOjA1NTAxNjI3MDAwMTQwMRYwFAYDVQQLDA1SRkIgZS1DTlBKIEEzMTYwNAYDVQQLDC1TZWNyZXRhcmlhIGRhIFJlY2VpdGEgRmVkZXJhbCBkbyBCcmFzaWwgLSBSRkIxFzAVBgNVBAsMDjE4Nzk5ODk3MDAwMTIwMRkwFwYDVQQLDBBWaWRlb2NvbmZlcmVuY2lhMR0wGwYDVQQHDBRWaXRvcmlhIGRhIENvbnF1aXN0YTELMAkGA1UECAwCQkExEzARBgNVBAoMCklDUC1CcmFzaWwxCzAJBgNVBAYTAkJSMAsGCSqGSIb3DQEBDQIDBz6RMCIYDzIwMjUwMzMxMDMwMDAwWhgPMjAyNjA0MDEwMjU5NTlaMIHAMEYGBWBMAQoBMT0TOzA2MDEyMDAzMDk0Mzc4OTI1NzEwMDAwMDAwMDA0NzQ3NjkwMDAwMDE0MDYyNTU4NTggICAgICAgICAgMHYGBWBMAQoCMW0Ta1VGQkEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFTlNJTk8gTUVESU8gICBOVVRSSUNBTyAgICAgICAgICAgICAgICAgICAgICBTQUxWQURPUiAgICAgICAgICAgIEJBMIG+MB8GA1UdIwQYMBaAFJBb3LljYN7JSkW4XNHv7Q9kbiWGMEYGA1UdHwQ/MD0wO6I5hjdodHRwOi8vY2FyZS5kb3Rpc29sdWNvZXMuY29tLmJyL2FwaS9lbnRpZGFkZXMvMy9jcmxzLzE2MFMGCCsGAQUFBwEBBEcwRTBDBggrBgEFBQcwAoY3aHR0cDovL2NhcmUuZG90aXNvbHVjb2VzLmNvbS5ici9hcGkvZW50aWRhZGVzLzMvYWlhcy8xNjALBgkqhkiG9w0BAQ0DggEBAALWt1KoNpDjnE68mKGsXcPHGaD3GTUbfZIKtPqL8MU+EigNFQx6TbzlihOJwAG3e9/FIfgYzT8o1ArZWSDsXQSGtChdlyftZm5e4t3HHmueLb3B4a5G1L/nE0osMQtNAScGHwCFUiryHeSI9RhzD5Iu1f9zq99dmDEe9yInN2D2Lt1damD7V06xtlxzxlhEfeOzrg3f56qWwnN952YxjDvyFjABNKoTf78I5s/9/1gh6aIXx7ummfsh2XGsRO4KwipgaShyFtzc8Qh6eUyWpwSUUcr7f1HXSU17rtsHYDzRPaBthSZXQUci36pfsy23zPi94JFVNBYVXlQH7tjUQpA=l\n-----END CERTIFICATE-----'
+                    cert: '-----BEGIN CERTIFICATE-----\nMIIEeDCCA2ICAQEwgYyhgYmkgYYwgYMxCzAJBgNVBAYTAkJSMRMwEQYDVQQKDApJQ1AtQnJhc2lsMTYwNAYDVQQLDC1VTklBTyBET1MgRVNUVURBTlRFUyBETyBCUkFTSUw6MDU1MDE2MjcwMDAxNDAxJzAlBgNVBAMMHk5BVEFMSUEgQy4gVEVOw5MSSU8gRE9TIFNBTlRPUzCCARKkggEOMIIBCjE2MDQGA1UEAwwtVU5JQU8gRE9TIEVTVFVEQU5URVMgRE8gQlJBU0lMOjA1NTAxNjI3MDAwMTQwMRYwFAYDVQQLDA1SRkIgZS1DTlBKIEEzMTYwNAYDVQQLDC1TZWNyZXRhcmlhIGRhIFJlY2VpdGEgRmVkZXJhbCBkbyBCcmFzaWwgLSBSRkIxFzAVBgNVBAsMDjE4Nzk5ODk3MDAwMTIwMRkwFwYDVQQLDBBWaWRlb2NvbmZlcmVuY2lhMR0wGwYDVQQHDBRWaXRvcmlhIGRhIENvbnF1aXN0YTELMAkGA1UECAwCQkExEzARBgNVBAoMCklDUC1CcmFzaWwxCzAJBgNVBAYTAkJSMAsGCSqGSIb3DQEBDQIDBz6RMCIYDzIwMjUwMzMxMDMwMDAwWhgPMjAyNjA0MDEwMjU5NTlaMIHAMEYGBWBMAQoBMT0TOzA2MDEyMDAzMDk0Mzc4OTI1NzEwMDAwMDAwMDA0NzQ3NjkwMDAwMDE0MDYyNTU4NTggICAgICAgICAgMHYGBWBMAQoCMW0Ta1VGQkEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFTlNJTk8gTUVESU8gICBOVVRSSUNBTyAgICAgICAgICAgICAgICAgICAgICBTQUxWQURPUiAgICAgICAgICAgIEJBMIG+MB8GA1UdIwQYMBaAFJBb3LljYN7JSkW4XNHv7Q9kbiWGMEYGA1UdHwQ/MD0wO6I5hjdodHRwOi8vY2FyZS5kb3Rpc29sdWNvZXMuY29tLmJyL2FwaS9lbnRpZGFkZXMvMy9jcmxzLzE2MFMGCCsGAQUFBwEBBEcwRTBDBggrBgEFBQcwAoY3aHR0cDovL2NhcmUuZG90aXNvbHVjb2VzLmNvbS5ici9hcGkvZW50aWRhZGVzLzMvYWlhcy8xNjALBgkqhkiG9w0BAQ0DggEBAALWt1KoNpDjnE68mKGsXcPHGaD3GTUbfZIKtPqL8MU+EigNFQx6TbzlihOJwAG3e9/FIfgYzT8o1ArZWSDsXQSGtChdlyftZm5e4t3HHmueLb3B4a5G1L/nE0osMQtNAScGHwCFUiryHeSI9RhzD5Iu1f9zq99dmDEe9yInN2D2Lt1damD7V06xtlxzxlhEfeOzrg3f56qWwnN952YxjDvyFjABNKoTf78I5s/9/1gh6aIXx7ummfsh2XGsRO4KwipgaShyFtzc8Qh6eUyWpwSUUcr7f1HXSU17rtsHYDzRPaBthSZXQUci36pfsy23zPi94JFVNBYVXlQH7tjUQpA=l\n-----END CERTIFICATE-----'
                 }
             };
 
